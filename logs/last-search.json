@@ -1,0 +1,295 @@
+{
+  "query": "vokey sm10 48",
+  "date": "2026-10-24T12:50:38.165Z",
+  "sites": [
+    {
+      "host": "golfonline.co.uk",
+      "country": "GB",
+      "status": "ok",
+      "ms": 406,
+      "attempts": [
+        {
+          "url": "https://www.golfonline.co.uk/search?q=vokey%20sm10%2048",
+          "http": 200,
+          "server": "Microsoft-IIS/10.0",
+          "products": 12,
+          "matches": 1
+        }
+      ]
+    },
+    {
+      "host": "scottsdalegolf.co.uk",
+      "country": "GB",
+      "status": "blocked",
+      "ms": 417,
+      "attempts": [
+        {
+          "url": "https://www.scottsdalegolf.co.uk/search?q=vokey%20sm10%2048",
+          "http": 403,
+          "server": "cloudflare",
+          "mitigated": "challenge",
+          "note": "Just a moment... Enable JavaScript and cookies to continue"
+        },
+        {
+          "url": "https://www.scottsdalegolf.co.uk/catalogsearch/result/?q=vokey%20sm10%2048",
+          "http": 403,
+          "server": "cloudflare",
+          "mitigated": "challenge",
+          "note": "Just a moment... Enable JavaScript and cookies to continue"
+        },
+        {
+          "url": "https://www.scottsdalegolf.co.uk/recherche?controller=search&s=vokey%20sm10%2048",
+          "http": 403,
+          "server": "cloudflare",
+          "mitigated": "challenge",
+          "note": "Just a moment... Enable JavaScript and cookies to continue"
+        }
+      ]
+    },
+    {
+      "host": "halpennygolf.com",
+      "country": "IE",
+      "status": "blocked",
+      "ms": 747,
+      "attempts": [
+        {
+          "url": "https://www.halpennygolf.com/SearchResults.aspx?Search=vokey%20sm10%2048",
+          "http": 403,
+          "note": "Azure WAF Please enable JavaScript to run this application. 20261024T125031Z-15d8c7497b5f72rnhC1PARmtxn00000004wg00000000bvv7"
+        },
+        {
+          "url": "https://www.halpennygolf.com/search?q=vokey%20sm10%2048",
+          "http": 403,
+          "note": "Azure WAF Please enable JavaScript to run this application. 20261024T125031Z-15d8c7497b5t7k5khC1PARwz0800000004t000000000ccfb"
+        },
+        {
+          "url": "https://www.halpennygolf.com/catalogsearch/result/?q=vokey%20sm10%2048",
+          "http": 403,
+          "note": "Azure WAF Please enable JavaScript to run this application. 20261024T125031Z-15d8c7497b5wgvhnhC1PAR21cn000000057g000000002qrr"
+        }
+      ]
+    },
+    {
+      "host": "clubhousegolf.co.uk",
+      "country": "GB",
+      "status": "no-match",
+      "ms": 3619,
+      "attempts": [
+        {
+          "url": "https://www.clubhousegolf.co.uk/search?q=vokey%20sm10%2048",
+          "http": 404,
+          "server": "cloudflare",
+          "note": "[sd.hide]--> 404 Error - Page Not Found - Clubhouse Golf [sd.hide]--> var g_oConfig = {\"bTaxIncl\":1,\"arrCurrs\":[{\"sSym\": \"&#163;\",\"nDecs\": 2,\"nThous\": 3,\"sDecSe"
+        },
+        {
+          "url": "https://www.clubhousegolf.co.uk/catalogsearch/result/?q=vokey%20sm10%2048",
+          "http": 404,
+          "server": "cloudflare",
+          "note": "[sd.hide]--> 404 Error - Page Not Found - Clubhouse Golf [sd.hide]--> var g_oConfig = {\"bTaxIncl\":1,\"arrCurrs\":[{\"sSym\": \"&#163;\",\"nDecs\": 2,\"nThous\": 3,\"sDecSe"
+        },
+        {
+          "url": "https://www.clubhousegolf.co.uk/recherche?controller=search&s=vokey%20sm10%2048",
+          "http": 404,
+          "server": "cloudflare",
+          "note": "[sd.hide]--> 404 Error - Page Not Found - Clubhouse Golf [sd.hide]--> var g_oConfig = {\"bTaxIncl\":1,\"arrCurrs\":[{\"sSym\": \"&#163;\",\"nDecs\": 2,\"nThous\": 3,\"sDecSe"
+        },
+        {
+          "url": "https://www.clubhousegolf.co.uk/?s=vokey%20sm10%2048&post_type=product",
+          "http": 200,
+          "server": "cloudflare",
+          "products": 76,
+          "matches": 0
+        },
+        {
+          "url": "https://www.clubhousegolf.co.uk/?s=vokey%20sm10&post_type=product",
+          "http": 200,
+          "server": "cloudflare",
+          "products": 76,
+          "matches": 0
+        }
+      ]
+    },
+    {
+      "host": "golfstore.ie",
+      "country": "IE",
+      "status": "unparsed",
+      "ms": 4068,
+      "attempts": [
+        {
+          "url": "https://www.golfstore.ie/search?q=vokey%20sm10%2048",
+          "http": 404,
+          "server": "LiteSpeed",
+          "note": "Page Not Found - Golf Shop Ireland .wp-block-button__link{align-content:center;box-sizing:border-box;display:inline-block;height:100%;text-align:center;word-bre"
+        },
+        {
+          "url": "https://www.golfstore.ie/catalogsearch/result/?q=vokey%20sm10%2048",
+          "http": 404,
+          "server": "LiteSpeed",
+          "note": "Page Not Found - Golf Shop Ireland .wp-block-button__link{align-content:center;box-sizing:border-box;display:inline-block;height:100%;text-align:center;word-bre"
+        },
+        {
+          "url": "https://www.golfstore.ie/recherche?controller=search&s=vokey%20sm10%2048",
+          "http": 404,
+          "server": "LiteSpeed",
+          "note": "Page Not Found - Golf Shop Ireland .wp-block-button__link{align-content:center;box-sizing:border-box;display:inline-block;height:100%;text-align:center;word-bre"
+        },
+        {
+          "url": "https://www.golfstore.ie/?s=vokey%20sm10%2048&post_type=product",
+          "http": 200,
+          "server": "LiteSpeed",
+          "products": 0
+        },
+        {
+          "url": "https://www.golfstore.ie/?s=vokey%20sm10&post_type=product",
+          "http": 200,
+          "server": "LiteSpeed",
+          "products": 0
+        },
+        {
+          "url": "https://www.golfstore.ie/search.php?search_query=vokey%20sm10%2048",
+          "http": 404,
+          "server": "LiteSpeed",
+          "note": "Page Not Found - Golf Shop Ireland .wp-block-button__link{align-content:center;box-sizing:border-box;display:inline-block;height:100%;text-align:center;word-bre"
+        }
+      ]
+    },
+    {
+      "host": "affordablegolf.co.uk",
+      "country": "GB",
+      "status": "no-match",
+      "ms": 5941,
+      "attempts": [
+        {
+          "url": "https://www.affordablegolf.co.uk/search?q=vokey%20sm10%2048",
+          "http": 200,
+          "server": "cloudflare",
+          "redirectedTo": "https://www.affordablegolf.co.uk/search?q=vokey+sm10+48",
+          "products": 34,
+          "matches": 0
+        },
+        {
+          "url": "https://www.affordablegolf.co.uk/search?q=vokey%20sm10",
+          "http": 200,
+          "server": "cloudflare",
+          "redirectedTo": "https://www.affordablegolf.co.uk/search?q=vokey+sm10",
+          "products": 34,
+          "matches": 0
+        }
+      ]
+    },
+    {
+      "host": "mcguirksgolf.com",
+      "country": "IE",
+      "status": "unparsed",
+      "ms": 5937,
+      "attempts": [
+        {
+          "url": "https://www.mcguirksgolf.com/search?q=vokey%20sm10%2048",
+          "http": 200,
+          "server": "Microsoft-IIS/10.0",
+          "products": 0
+        },
+        {
+          "url": "https://www.mcguirksgolf.com/search?q=vokey%20sm10",
+          "http": 200,
+          "server": "Microsoft-IIS/10.0",
+          "products": 0
+        },
+        {
+          "url": "https://www.mcguirksgolf.com/catalogsearch/result/?q=vokey%20sm10%2048",
+          "http": 404,
+          "server": "Microsoft-IIS/10.0",
+          "note": "Website Error Page not found Sorry we could not find the page that you are looking for Please check the url Or click here to return to the website . You could u"
+        },
+        {
+          "url": "https://www.mcguirksgolf.com/recherche?controller=search&s=vokey%20sm10%2048",
+          "http": 404,
+          "server": "Microsoft-IIS/10.0",
+          "note": "Website Error Page not found Sorry we could not find the page that you are looking for Please check the url Or click here to return to the website . You could u"
+        },
+        {
+          "url": "https://www.mcguirksgolf.com/?s=vokey%20sm10%2048&post_type=product",
+          "http": 200,
+          "server": "Microsoft-IIS/10.0",
+          "products": 0
+        },
+        {
+          "url": "https://www.mcguirksgolf.com/?s=vokey%20sm10&post_type=product",
+          "http": 200,
+          "server": "Microsoft-IIS/10.0",
+          "products": 0
+        },
+        {
+          "url": "https://www.mcguirksgolf.com/search.php?search_query=vokey%20sm10%2048",
+          "http": 403,
+          "server": "awselb/2.0",
+          "note": "403 Forbidden 403 Forbidden"
+        }
+      ]
+    },
+    {
+      "host": "monsieurgolf.com",
+      "country": "FR",
+      "status": "no-match",
+      "ms": 6199,
+      "attempts": [
+        {
+          "url": "https://www.monsieurgolf.com/search?q=vokey%20sm10%2048",
+          "http": 404,
+          "server": "Apache",
+          "note": "Page non trouvée | MONSIEURGOLF Conseils d'experts (téléphone, e-mail) PAYER EN 3 ou 4 FOI"
+        },
+        {
+          "url": "https://www.monsieurgolf.com/catalogsearch/result/?q=vokey%20sm10%2048",
+          "http": 404,
+          "server": "Apache",
+          "note": "Page non trouvée | MONSIEURGOLF Conseils d'experts (téléphone, e-mail) PAYER EN 3 ou 4 FOI"
+        },
+        {
+          "url": "https://www.monsieurgolf.com/recherche?controller=search&s=vokey%20sm10%2048",
+          "http": 404,
+          "server": "Apache",
+          "note": "Page non trouvée | MONSIEURGOLF Conseils d'experts (téléphone, e-mail) <a data-document-id=\"102715\" target=\"_self\" href=\"https://www.monsieurgolf.com/moyens-d"
+        },
+        {
+          "url": "https://www.monsieurgolf.com/?s=vokey%20sm10%2048&post_type=product",
+          "http": 200,
+          "server": "Apache",
+          "products": 4,
+          "matches": 0
+        },
+        {
+          "url": "https://www.monsieurgolf.com/?s=vokey%20sm10&post_type=product",
+          "http": 200,
+          "server": "Apache",
+          "products": 4,
+          "matches": 0
+        }
+      ]
+    },
+    {
+      "host": "americangolf.co.uk",
+      "country": "GB",
+      "status": "no-match",
+      "ms": 6440,
+      "attempts": [
+        {
+          "url": "https://www.americangolf.co.uk/search?q=vokey%20sm10%2048",
+          "http": 200,
+          "server": "Netlify",
+          "redirectedTo": "https://www.americangolf.co.uk/search/?q=vokey%20sm10%2048",
+          "products": 47,
+          "matches": 0
+        },
+        {
+          "url": "https://www.americangolf.co.uk/search?q=vokey%20sm10",
+          "http": 200,
+          "server": "Netlify",
+          "redirectedTo": "https://www.americangolf.co.uk/search/?q=vokey%20sm10",
+          "products": 47,
+          "matches": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+[
+  { "url": "https://www.monsieurgolf.com/", "country": "FR" },
+
+  { "url": "https://www.affordablegolf.co.uk/", "country": "GB" },
+  { "url": "https://www.americangolf.co.uk/", "country": "GB" },
+  { "url": "https://www.clubhousegolf.co.uk/", "country": "GB" },
+  { "url": "https://www.scottsdalegolf.co.uk/", "country": "GB" },
+  { "url": "https://www.golfonline.co.uk/", "country": "GB" },
+
+  { "url": "https://www.mcguirksgolf.com/", "country": "IE" },
+  { "url": "https://www.halpennygolf.com/", "country": "IE" },
+  { "url": "https://www.golfstore.ie/", "country": "IE" }
+]

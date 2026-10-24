@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Golf Finder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Golf Finder</h1>
+    <p class="tagline">One search across every golf shop in <code>sources.json</code></p>
+    <form id="form" autocomplete="off">
+      <input id="q" type="search" placeholder="vokey sm10 48°" autofocus required minlength="2">
+      <button id="go" type="submit">Search</button>
+    </form>
+    <div id="countries" class="chips" aria-label="Countries"></div>
+  </header>
+
+  <main>
+    <div id="progress" hidden>
+      <div class="bar"><div id="bar-fill"></div></div>
+      <span id="progress-text"></span>
+      <button id="stop" type="button">Stop</button>
+    </div>
+
+    <div id="toolbar" hidden>
+      <span id="count"></span>
+      <label>Sort
+        <select id="sort">
+          <option value="price">Price (low to high)</option>
+          <option value="relevance">Relevance</option>
+          <option value="country">Country</option>
+        </select>
+      </label>
+      <label class="check"><input id="stock" type="checkbox"> In stock only</label>
+    </div>
+
+    <ul id="results"></ul>
+    <p id="empty" hidden>No matching product found yet.</p>
+
+    <details id="sites" hidden>
+      <summary>Per-shop status</summary>
+      <p><a href="/api/diagnostics">Download diagnostics (JSON)</a> · each shop lists the requests made</p>
+      <ul id="site-list"></ul>
+    </details>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
