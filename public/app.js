@@ -57,7 +57,7 @@ function card(p) {
     ${img}
     <div>
       <a class="title" href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">${esc(p.title)}</a>
-      <div class="meta">${flag(p.country)} ${esc(p.host)} · ${p.country}${p.sku ? ` · ref <span class="sku">${esc(p.sku)}</span>` : ''}${stock}</div>
+      <div class="meta">${flag(p.country)} ${esc(p.host)} · ${p.country}${p.variant ? ` · ${esc(p.variant)}` : ''}${p.sku ? ` · ref <span class="sku">${esc(p.sku)}</span>` : ''}${stock}</div>
     </div>
     <div class="price">
       <strong>${money(p.price.amount, p.price.currency)}</strong>${approx}

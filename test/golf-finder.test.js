@@ -1,9 +1,9 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { parseQuery, scoreTitle } from '../lib/match.js';
+import { matchProduct, parseQuery, scoreTitle } from '../lib/match.js';
 import { parseAmount, parsePrice } from '../lib/price.js';
-import { extractProducts } from '../lib/extract.js';
-import { searchSiteScraperApi } from '../lib/scraper-api.js';
+import { extractProductVariants, extractProducts } from '../lib/extract.js';
+import { fetchWithScrapling } from '../lib/scrapling.js';
 
 test('parseQuery splits words and loft number', () => {
   const q = parseQuery('vokey sm10 48degre');
@@ -25,6 +25,29 @@ test('scoreTitle matches the right wedge only', () => {
   assert.equal(scoreTitle('Titleist Vokey SM10 Tour Chrome Wedge 52.08 F', q), 0);
   assert.equal(scoreTitle('Titleist Vokey SM9 Wedge 48.08', q), 0);
   assert.equal(scoreTitle('Cleveland RTX 6 ZipCore 48', q), 0);
+});
+
+test('matchProduct matches the requested loft in product options', () => {
+  const query = parseQuery('vokey sm10 48');
+  const product = {
+    title: 'Titleist Vokey SM10 Tour Chrome Wedge Right Hand',
+    variants: [
+      '48 Degree 10 Bounce F Grind Wedge - In stock',
+      '50 Degree 12 Bounce F Grind Wedge - In stock',
+    ],
+  };
+
+  assert.equal(
+    matchProduct(product, query).variant,
+    '48 Degree 10 Bounce F Grind Wedge - In stock',
+  );
+  assert.equal(
+    matchProduct(
+      { ...product, variants: ['50 Degree 12 Bounce F Grind Wedge'] },
+      query,
+    ),
+    null,
+  );
 });
 
 test('parseAmount handles European and UK formats', () => {
@@ -57,6 +80,27 @@ test('extractProducts reads JSON-LD products', () => {
   assert.equal(p.inStock, true);
 });
 
+test('extractProducts reads product variants from option selectors', () => {
+  const html = `<html><head><script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Product","name":"Titleist Vokey SM10 Wedge",
+      "url":"/p/vokey-sm10","offers":{"@type":"Offer","price":"159.00","priceCurrency":"EUR"}}
+  </script></head><body>
+    <select name="ProductOptions_StockOptions">
+      <option value="0">Select an option</option>
+      <option value="114785">48 Degree 10 Bounce F Grind Wedge - In stock</option>
+      <option value="114722">50 Degree 12 Bounce F Grind Wedge - In stock</option>
+    </select>
+    <select name="ReviewsFilter"><option value="1">Five stars</option></select>
+  </body></html>`;
+  const [product] = extractProducts(html, 'https://shop.example/p/vokey-sm10', 'IE');
+
+  assert.deepEqual(product.variants, [
+    '48 Degree 10 Bounce F Grind Wedge - In stock',
+    '50 Degree 12 Bounce F Grind Wedge - In stock',
+  ]);
+  assert.deepEqual(extractProductVariants(html), product.variants);
+});
+
 test('extractProducts falls back to HTML cards and ignores old prices', () => {
   const html = `<body><ul>
     <li class="product"><a href="/vokey-sm10-48"><img data-src="/i/a.jpg" alt="Vokey SM10 Wedge 48"></a>
@@ -73,28 +117,16 @@ test('extractProducts falls back to HTML cards and ignores old prices', () => {
   assert.equal(products.length, 2);
 });
 
-test('ScraperAPI errors include response details and elapsed time', async () => {
-  const originalFetch = globalThis.fetch;
-  const originalApiKey = process.env.SCRAPERAPI_KEY;
-  process.env.SCRAPERAPI_KEY = 'test-key';
-  globalThis.fetch = async () => ({
-    status: 500,
-    ok: false,
-    text: async () => 'upstream request failed',
-  });
+test('Scrapling requests honor an already-aborted search signal', async () => {
+  const controller = new AbortController();
+  controller.abort();
 
-  try {
-    const result = await searchSiteScraperApi(
-      { url: 'https://www.halpennygolf.com/', country: 'IE' },
-      parseQuery('vokey sm10 48'),
-    );
-    assert.equal(result.status, 'error');
-    assert.equal(result.attempts[0].http, 500);
-    assert.match(result.attempts[0].note, /upstream request failed/);
-    assert.equal(typeof result.attempts[0].ms, 'number');
-  } finally {
-    globalThis.fetch = originalFetch;
-    if (originalApiKey === undefined) delete process.env.SCRAPERAPI_KEY;
-    else process.env.SCRAPERAPI_KEY = originalApiKey;
-  }
+  await assert.rejects(
+    fetchWithScrapling('https://shop.example/search', {
+      headers: {},
+      signal: controller.signal,
+      timeoutMs: 1000,
+    }),
+    { name: 'AbortError' },
+  );
 });
