@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { parseQuery, scoreTitle } from '../lib/match.js';
 import { parseAmount, parsePrice } from '../lib/price.js';
 import { extractProducts } from '../lib/extract.js';
+import { searchSiteScraperApi } from '../lib/scraper-api.js';
 
 test('parseQuery splits words and loft number', () => {
   const q = parseQuery('vokey sm10 48degre');
@@ -70,4 +71,30 @@ test('extractProducts falls back to HTML cards and ignores old prices', () => {
   assert.equal(wedge.price.amount, 159);
   assert.equal(wedge.image, 'https://shop.example/i/a.jpg');
   assert.equal(products.length, 2);
+});
+
+test('ScraperAPI errors include response details and elapsed time', async () => {
+  const originalFetch = globalThis.fetch;
+  const originalApiKey = process.env.SCRAPERAPI_KEY;
+  process.env.SCRAPERAPI_KEY = 'test-key';
+  globalThis.fetch = async () => ({
+    status: 500,
+    ok: false,
+    text: async () => 'upstream request failed',
+  });
+
+  try {
+    const result = await searchSiteScraperApi(
+      { url: 'https://www.halpennygolf.com/', country: 'IE' },
+      parseQuery('vokey sm10 48'),
+    );
+    assert.equal(result.status, 'error');
+    assert.equal(result.attempts[0].http, 500);
+    assert.match(result.attempts[0].note, /upstream request failed/);
+    assert.equal(typeof result.attempts[0].ms, 'number');
+  } finally {
+    globalThis.fetch = originalFetch;
+    if (originalApiKey === undefined) delete process.env.SCRAPERAPI_KEY;
+    else process.env.SCRAPERAPI_KEY = originalApiKey;
+  }
 });
